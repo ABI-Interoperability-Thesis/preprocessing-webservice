@@ -1,7 +1,19 @@
-const SampleController = (req,res) =>{
-    return res.send('ok')
+const preprocessor = require('../utils/model-preprocessor')
+
+const PreprocessRequest = async (req,res) =>{
+    const model = req.params.model
+    const pred_obj = req.body.pred_obj
+
+    console.log('Received obj')
+    console.log(req.body)
+
+    const preprocessed_obj = await preprocessor[model](pred_obj)
+
+    return res.send({
+        proc_obj: preprocessed_obj
+    })
 }
 
 module.exports = {
-    SampleController: SampleController
+    PreprocessRequest: PreprocessRequest
 }
