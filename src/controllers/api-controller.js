@@ -14,6 +14,12 @@ const PreprocessRequest = async (req,res) =>{
     })
 }
 
+const GetAllPreprocessors = (req,res) => {
+    const all_preprocessors = ['hospitalization_pred']
+    return res.send(all_preprocessors)
+}
+
 module.exports = {
-    PreprocessRequest: PreprocessRequest
+    PreprocessRequest: PreprocessRequest,
+    GetAllPreprocessors: GetAllPreprocessors
 }

@@ -3,9 +3,17 @@ const express = require('express')
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('../swagger/swagger.json')
 const app = express()
+const cors = require('cors')
 const port = process.env.PORT || 3000
 
 app.use(express.json())
+
+// Configure cors to accept traffic from all origins
+const corsOptions = {
+  origin: '*'
+};
+
+app.use(cors(corsOptions));
 
 // Landing Page for the webservice
 app.get('/', (req,res)=>res.send('Landing Route for Preprocessing Webservice'))
