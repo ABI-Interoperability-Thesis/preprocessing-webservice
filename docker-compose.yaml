@@ -1,11 +1,13 @@
 version: '3'
 
 services:
-  webservice-template:
+  preprocessing-ws:
     build: .
-    container_name: webservice-template
-    ports:
-      - "3000:3000"
+    container_name: 'preprocessing-webservice'
     environment:
-      NODE_ENV: development
-    restart: always
+      - PORT=3000
+      - ENV=prod
+    ports:
+    - "3003:3000"
+    depends_on:
+      - mysql-handler
