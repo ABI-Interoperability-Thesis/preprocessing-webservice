@@ -10,17 +10,17 @@ jobs:
   publish-image:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Authenticate Github Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghrc.io
-          username: ${{github.actor}}
-          password: ${{secrets.GITHUB_TOKEN}}
-        - name: Build the Docker Image
-          run: |
-            docker build . --tag preprocessing-webservice:latest
-            docker run preprocessing-webservice:latest
-            docker push preprocessing-webservice:latest
+    - uses: actions/checkout@v3
+    - name: Authenticate Github Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghrc.io
+        username: ${{github.actor}}
+        password: ${{secrets.GITHUB_TOKEN}}
+      - name: Build the Docker Image
+        run: |
+          docker build . --tag preprocessing-webservice:latest
+          docker run preprocessing-webservice:latest
+          docker push preprocessing-webservice:latest
 
   
