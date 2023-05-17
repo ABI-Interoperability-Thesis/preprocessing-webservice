@@ -4,8 +4,8 @@ const axios = require('axios');
 const runtime_env = process.env.ENV
 const endpoint = endpoints['mysql'][runtime_env]
 
-const MatchDB = async (attribute, value) => {
-    const data = JSON.stringify({ attribute, value });
+const MatchDB = async (attribute, value, model_name) => {
+    const data = JSON.stringify({ attribute, value, model_name });
 
     const config = {
         method: 'post',
@@ -16,9 +16,8 @@ const MatchDB = async (attribute, value) => {
         data: data
     };
 
-    let db_mapping
     const axios_response = await axios(config)
-    axios_response.data ? db_mapping = axios_response.data : db_mapping = 0
+    const db_mapping = axios_response.data.mapping
 
     return db_mapping
 }
