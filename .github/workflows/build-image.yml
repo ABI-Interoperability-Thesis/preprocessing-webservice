@@ -23,5 +23,4 @@ jobs:
       - name: Build and Publish the Docker Image
         run: |
           docker build . --tag ghcr.io/joaoguedes01/preprocessing-webservice:latest
-          docker run ghcr.io/joaoguedes01/preprocessing-webservice:latest
           docker push ghcr.io/joaoguedes01/preprocessing-webservice:latest
