@@ -19,5 +19,5 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build the Docker Image
       run: |
-        docker build build . --tag ghcr.io/joaoguedes01/preprocessing-webservice-abi:latest
+        docker build . --tag ghcr.io/joaoguedes01/preprocessing-webservice-abi:latest
         docker push ghcr.io/joaoguedes01/preprocessing-webservice-abi:latest
