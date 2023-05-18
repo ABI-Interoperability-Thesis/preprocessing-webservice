@@ -22,5 +22,5 @@ jobs:
 
       - name: Build and Publish the Docker Image
         run: |
-          docker build -t ghcr.io/abi-interoperability-thesis/preprocessing-webservice:${{github.sha}} .
-          docker push ghcr.io/abi-interoperability-thesis/preprocessing-webservice:${{github.sha}}
+          docker build -t ghcr.io/abi-interoperability-thesis/preprocessing-webservice:latest .
+          docker push ghcr.io/abi-interoperability-thesis/preprocessing-webservice:latest
