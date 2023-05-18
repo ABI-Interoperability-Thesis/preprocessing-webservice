@@ -15,8 +15,6 @@ jobs:
 
       - name: Authenticate with GitHub Container Registry
         run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
-
-      - name: Run Docker Compose
-        run: |
-          docker-compose -f /home/iacd/joao-guedes/ABI-Interoperability/docker-compose.yaml build
-          docker-compose -f /home/iacd/joao-guedes/ABI-Interoperability/docker-compose.yaml up -d
+        
+      - name: Run Docker Compose Up
+        run: docker-compose -f /home/iacd/joao-guedes/ABI-Interoperability/docker-compose.yaml up -d --pull
