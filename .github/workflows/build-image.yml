@@ -32,3 +32,8 @@ jobs:
         run: |
           docker build -t ghcr.io/abi-interoperability-thesis/preprocessing-webservice:latest .
           docker push ghcr.io/abi-interoperability-thesis/preprocessing-webservice:latest
+
+      - name: '♻️ cleanup'
+        run: |
+          echo ${{ env.RELEASE_TAG }}
+          echo ${{ env.RELEASE_VERSION }}
