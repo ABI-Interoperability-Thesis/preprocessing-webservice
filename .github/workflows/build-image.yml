@@ -28,12 +28,12 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.ACTION_TOKEN }}
 
+      - name: Extract release version
+        id: version
+        run: echo ::set-output name=version::$(npx semantic-release --dry-run | grep "version")
+        
       - name: Build and Publish the Docker Image
         run: |
-          docker build -t ghcr.io/abi-interoperability-thesis/preprocessing-webservice:latest .
-          docker push ghcr.io/abi-interoperability-thesis/preprocessing-webservice:latest
-
-      - name: '♻️ cleanup'
-        run: |
-          echo ${{ env.RELEASE_TAG }}
-          echo ${{ env.RELEASE_VERSION }}
+          docker build -t ghcr.io/abi-interoperability-thesis/preprocessing-webservice:${{ steps.version.outputs.version }} .
+          docker push ghcr.io/abi-interoperability-thesis/preprocessing-webservice:${{ steps.version.outputs.version }}
+        
