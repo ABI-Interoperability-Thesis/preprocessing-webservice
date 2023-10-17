@@ -7,7 +7,7 @@ on:
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
-    runs-on: ubuntu-${{github.ref_name}}
+    runs-on: ubuntu-ubuntu-latest
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -21,6 +21,6 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build . --tag ${{github.ref_name}}
+          docker build . --tag ghcr.io/abi-interoperability-thesis/mysql-webservice:${{github.ref_name}}
           docker run ghcr.io/abi-interoperability-thesis/mysql-webservice:${{github.ref_name}}
           docker push ghcr.io/abi-interoperability-thesis/mysql-webservice:${{github.ref_name}}
