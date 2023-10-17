@@ -14,7 +14,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app
 
 // Landing Page for the webservice
 app.get('/', (req,res)=>res.send('Landing Route for Preprocessing Webservice test #5'))
