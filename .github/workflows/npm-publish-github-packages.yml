@@ -25,3 +25,5 @@ jobs:
           context: .
           push: true
           tags: github.ref_name
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.ACTION_TOKEN }}
