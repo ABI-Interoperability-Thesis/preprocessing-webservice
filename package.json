@@ -1,5 +1,5 @@
 {
-  "name": "preprocessing-microservice-abi-interoperability",
+  "name": "preprocessing-webservice",
   "version": "0.0.0",
   "description": "Preprocessing Microservice for ABI Interoperability system",
   "main": "index.js",
