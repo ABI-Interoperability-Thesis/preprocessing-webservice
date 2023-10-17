@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/ABI-Interoperability-Thesis/preprocessing-webservice.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/ABI-Interoperability-Thesis"
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
