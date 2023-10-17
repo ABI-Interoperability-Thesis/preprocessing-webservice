@@ -21,6 +21,6 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build . --tag ghcr.io/abi-interoperability-thesis/mysql-webservice:${{github.ref_name}}
+          docker build . --tag ${{github.ref_name}}
           docker run ghcr.io/abi-interoperability-thesis/mysql-webservice:${{github.ref_name}}
           docker push ghcr.io/abi-interoperability-thesis/mysql-webservice:${{github.ref_name}}
