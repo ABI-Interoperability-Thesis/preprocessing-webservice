@@ -9,6 +9,7 @@ const calculateAge = (birth_date) => {
     const ageInYears = ageInMs / 1000 / 60 / 60 / 24 / 365.25; // convert age difference to years (taking leap years into account)
 
     const age = Math.floor(ageInYears); // get age rounded down to nearest year
+    console.log(age)
 
     return age
 }

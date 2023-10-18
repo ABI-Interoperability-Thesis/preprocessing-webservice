@@ -13,6 +13,8 @@ const corsOptions = {
   origin: '*'
 };
 
+console.log('hello')
+
 app.use(cors(corsOptions));
 
 // Landing Page for the webservice
