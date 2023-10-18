@@ -1,15 +1,16 @@
 {
-  "name": "webservice-template-nodejs",
+  "name": "preprocessing-webservice",
   "version": "0.0.0",
-  "description": "Template for Node.js webservice",
+  "description": "Preprocessing Microservice for ABI Interoperability system",
   "main": "index.js",
   "scripts": {
     "start": "node src/app",
-    "dev": "nodemon src/app"
+    "dev": "nodemon src/app",
+    "test": "npx jest --testMatch='**/__tests__/**/*.test.js' --collectCoverage=true"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JoaoGuedes01/webservice-template-nodejs.git"
+    "url": "git+https://github.com/ABI-Interoperability-Thesis/preprocessing-webservice.git"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "commitizen": "^4.3.0",
+    "jest": "^29.7.0",
     "semantic-release": "^22.0.5"
   }
 }
