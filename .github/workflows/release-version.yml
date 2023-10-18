@@ -3,9 +3,6 @@ name: Release Version
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
 jobs:
   build-and-publish-image:
     runs-on: ubuntu-latest
