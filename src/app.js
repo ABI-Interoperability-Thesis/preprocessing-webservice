@@ -16,7 +16,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Landing Page for the webservice
-app.get('/', (req,res)=>res.send('Landing Route for Preprocessing Webservice test'))
+app.get('/', (req,res)=>res.send('Landing Route for Preprocessing Webservice test #version something'))
 
 //Routing /api requests to the api router
 const apiRoutes = require('./routes/api-routes')
