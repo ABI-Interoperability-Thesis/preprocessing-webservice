@@ -2,7 +2,7 @@ version: '3'
 
 services:
   preprocessing-ws:
-    build: .
+    image: preprocessing-webservice:ci
     container_name: 'preprocessing-webservice'
     environment:
       - PORT=3000
