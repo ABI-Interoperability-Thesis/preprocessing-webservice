@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Build Docker Image
-        run: docker-compose build .
+        run: docker-compose build
 
       - name: Run Docker Compose Up
         run: docker-compose up -d
