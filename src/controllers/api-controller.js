@@ -1,6 +1,6 @@
 const preprocessor = require('../utils/model-preprocessor')
 
-const PreprocessRequest = async (req,res) =>{
+const PreprocessRequest = async (req, res) => {
     const model = req.params.model
     const pred_obj = req.body.pred_obj
 
@@ -14,13 +14,18 @@ const PreprocessRequest = async (req,res) =>{
     })
 }
 
-const GetAllPreprocessors = (req,res) => {
+const GetAllPreprocessors = (req, res) => {
     //Test comment
     const all_preprocessors = ['hospitalization_pred']
     return res.send(all_preprocessors)
 }
 
+const NewRoute = (req, res) => {
+    return res.send('This is a new route')
+}
+
 module.exports = {
     PreprocessRequest: PreprocessRequest,
-    GetAllPreprocessors: GetAllPreprocessors
+    GetAllPreprocessors: GetAllPreprocessors,
+    NewRoute: NewRoute
 }
