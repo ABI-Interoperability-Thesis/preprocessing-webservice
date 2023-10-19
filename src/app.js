@@ -14,6 +14,7 @@ const corsOptions = {
 };
 
 console.log('hello')
+console.log('hello2')
 
 app.use(cors(corsOptions));
 
