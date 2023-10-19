@@ -26,4 +26,4 @@ jobs:
         run: docker build -t preprocessing-webservice:ci . --rm
 
       - name: Run Docker Container
-        run: docker run -d --name preprocessing-webservice --rm preprocessing-webservice:ci
+        run: docker run -d -p 3010:3000 --name preprocessing-webservice --rm preprocessing-webservice:ci
