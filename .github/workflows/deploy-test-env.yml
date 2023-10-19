@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Build Docker Image
-        run: docker build -t ci .
+        run: docker build -t preprocessing-webservice:ci .
 
       - name: Run Docker Compose Up
-        run: docker-compose up -d
+        run: docker-compose up . -d
