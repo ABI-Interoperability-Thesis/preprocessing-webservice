@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile  # If your Dockerfile is named something different, replace it here.
     container_name: 'preprocessing-webservice'
-    image: preprocessing-webservice:ci
+    image: "preprocessing-webservice:ci"
     environment:
       - PORT=3000
       - ENV=prod
