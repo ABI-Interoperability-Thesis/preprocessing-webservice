@@ -4,20 +4,26 @@ on:
   push:
     branches: [ "dev" ]
 jobs:
-  build:
-    runs-on: ["ABI-Interoperability"]
+  tests:
+    runs-on: ["abi-interoperability-ci"]
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Authenticate with GitHub Container Registry
-        run: echo "${{ secrets.ACTION_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+      - name: Install Dependencies
+        run: npm ci
 
-      - name: Create new Docker Image
-        run: docker build -t preprocessing-microservice:latest .
+      - name: Run Unit Tests
+        run: npm test
+  build:
+    runs-on: ["abi-interoperability-ci"]
+    needs: tests
+    if: success()
 
+    steps:
       - name: Build Docker Compose
-        run: docker-compose -f /home/iacd/joao-guedes/abi-interoperability/docker-test/docker-compose.yaml build
-        
+        run: docker-compose build
+      
       - name: Run Docker Compose Up
-        run: docker-compose -f /home/iacd/joao-guedes/abi-interoperability/docker-test/docker-compose.yaml up -d
+        run: docker-compose up -d
