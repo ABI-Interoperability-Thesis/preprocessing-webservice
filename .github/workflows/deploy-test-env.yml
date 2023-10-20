@@ -31,14 +31,5 @@ jobs:
       - name: Build Docker Image
         run: docker build -t preprocessing-webservice:ci .
 
-      - name: Stop Existing Container
-        run: docker stop preprocessing-webservice || true
-
-      - name: Remove Existing Container
-        run: docker rm preprocessing-webservice || true
-
-      - name: Run Docker Container
-        run: docker run -d -p 3010:3000 --name preprocessing-webservice \
-             -e PORT=3000 \
-             -e ENV=dev \
-             preprocessing-webservice:ci
+      - name: Run Development Docker Compose
+        run: docker-compose -f /home/iacd/interoperability/system-requirements/docker-compose.yaml up -d
