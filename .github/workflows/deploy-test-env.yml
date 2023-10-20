@@ -31,12 +31,11 @@ jobs:
       - name: Build Docker Image
         run: docker build -t preprocessing-webservice:ci .
 
-      - name: Remove existing Docker Container (optional)
-        run: |
-          if docker ps -a | grep preprocessing-webservice; then
-            docker stop preprocessing-webservice
-            docker rm preprocessing-webservice
-          fi
+      - name: Stop Existing Container
+        run: docker stop preprocessing-webservice || true
+
+      - name: Remove Existing Container
+        run: docker rm preprocessing-webservice || true
 
       - name: Run Docker Container
         run: docker run -d -p 3010:3000 --name preprocessing-webservice preprocessing-webservice:ci
