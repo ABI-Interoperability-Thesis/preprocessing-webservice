@@ -31,8 +31,5 @@ jobs:
       - name: Build Docker Image
         run: docker build -t preprocessing-webservice:ci .
 
-      - name: Change directory
-        run: sudo cd /home/iacd/ && ls -la
-
       - name: Run Development Docker Compose
-        run: docker-compose -f /home/iacd/interoperability/system-requirements/docker-compose.yaml up -d
+        run: sudo docker-compose -f /home/iacd/interoperability/system-requirements/docker-compose.yaml up -d
