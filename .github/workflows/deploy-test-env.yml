@@ -20,14 +20,11 @@ jobs:
         run: npm test
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: abi-interoperability-ci
     needs: tests
     if: success()
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
       - name: Build Docker Image
         run: docker build -t preprocessing-webservice:ci .
 
